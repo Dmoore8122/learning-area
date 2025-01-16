@@ -31,7 +31,30 @@
     </ul>
 
     <script>
+        const unorder = document.querySelector('ul');
+        const userText = document.querySelector('input');
+        const addButton = document.querySelector('button');
 
+        addButton.addEventListener('click', () => {
+          const item = userText.value;
+          userText.value = '';
+
+          const list = document.createElement('li');
+          const span = document.createElement('span');
+          const xButton = document.createElement('button');
+          
+          unorder.appendChild(list);
+          list.appendChild(span);
+          span.textContent = item;
+          list.appendChild(xButton);
+          xButton.textContent = 'Delete';
+
+          xButton.addEventListener('click', () => {
+            unorder.removeChild(list);
+          })
+
+          userText.focus();
+        });
     </script>
   </body>
 </html>
